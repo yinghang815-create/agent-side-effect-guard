@@ -4,7 +4,7 @@ build-backend = "hatchling.build"
 
 [project]
 name = "agent-side-effect-guard"
-version = "0.1.0"
+version = "0.1.1"
 description = "Prevent duplicate sends, posts, payments, deployments, and deletes in retrying AI-agent workflows."
 readme = "README.md"
 requires-python = ">=3.10"
@@ -25,6 +25,7 @@ classifiers = [
   "Topic :: Database",
   "Topic :: Software Development :: Libraries :: Python Modules",
 ]
+dependencies = ["tomli>=2.2; python_version < '3.11'"]
 
 [project.urls]
 Homepage = "https://github.com/yinghang815-create/agent-side-effect-guard"
