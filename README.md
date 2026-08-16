@@ -3,7 +3,7 @@
 [![CI](https://github.com/yinghang815-create/agent-side-effect-guard/actions/workflows/ci.yml/badge.svg)](https://github.com/yinghang815-create/agent-side-effect-guard/actions/workflows/ci.yml)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 
-`agent-side-effect-guard` prevents retrying AI agents from sending, posting, paying, deploying, updating, or deleting twice. It combines a deterministic workflow linter with a dependency-free SQLite idempotency journal for Python agents.
+`agent-side-effect-guard` prevents retrying AI agents from sending, posting, paying, deploying, updating, or deleting twice. It combines a deterministic workflow linter with a lightweight SQLite idempotency journal for Python agents. Python 3.11+ uses only the standard library; Python 3.10 installs the small `tomli` compatibility package for TOML parsing.
 
 It complements [`agent-checkpoint-sqlite`](https://github.com/yinghang815-create/agent-checkpoint-sqlite): checkpoints make agent work resumable; this guard makes external side effects safe to resume.
 
