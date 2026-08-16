@@ -1,0 +1,18 @@
+{
+  "concurrency": {"max": 4, "group": "${event.id}"},
+  "steps": [
+    {"id": "draft", "action": "generate_article"},
+    {
+      "id": "publish",
+      "action": "publish_article",
+      "retry": {"max_attempts": 3, "retry_on": "TimeoutError"},
+      "idempotency_key": "publish:${event.id}"
+    },
+    {
+      "id": "cleanup",
+      "action": "delete_draft",
+      "confirmation": true,
+      "idempotency_key": "delete:${event.id}"
+    }
+  ]
+}

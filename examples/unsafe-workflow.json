@@ -1,0 +1,9 @@
+{
+  "concurrency": {"max": 4},
+  "steps": [
+    {"id": "draft", "action": "generate_article"},
+    {"id": "publish", "action": "publish_article", "retry": {"max_attempts": 5, "retry_on": "all"}},
+    {"id": "charge", "action": "charge_card", "retry": {"max_attempts": "unlimited"}},
+    {"id": "cleanup", "action": "delete_draft", "continue_on_error": true}
+  ]
+}

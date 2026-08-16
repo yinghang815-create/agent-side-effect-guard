@@ -1,0 +1,45 @@
+[build-system]
+requires = ["hatchling>=1.27"]
+build-backend = "hatchling.build"
+
+[project]
+name = "agent-side-effect-guard"
+version = "0.1.0"
+description = "Prevent duplicate sends, posts, payments, deployments, and deletes in retrying AI-agent workflows."
+readme = "README.md"
+requires-python = ">=3.10"
+license = {file = "LICENSE"}
+authors = [{name = "Yinghang Wu"}]
+keywords = ["ai-agent", "idempotency", "side-effects", "retry", "sqlite", "workflow"]
+classifiers = [
+  "Development Status :: 3 - Alpha",
+  "Environment :: Console",
+  "Intended Audience :: Developers",
+  "License :: OSI Approved :: MIT License",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3.10",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+  "Programming Language :: Python :: 3.13",
+  "Programming Language :: Python :: 3.14",
+  "Topic :: Database",
+  "Topic :: Software Development :: Libraries :: Python Modules",
+]
+
+[project.urls]
+Homepage = "https://github.com/yinghang815-create/agent-side-effect-guard"
+Issues = "https://github.com/yinghang815-create/agent-side-effect-guard/issues"
+
+[project.scripts]
+agent-side-effect-guard = "agent_side_effect_guard.cli:main"
+side-effect-guard = "agent_side_effect_guard.cli:main"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/agent_side_effect_guard"]
+
+[tool.ruff]
+line-length = 120
+target-version = "py310"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B", "SIM"]
